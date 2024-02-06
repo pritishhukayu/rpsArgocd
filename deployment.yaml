@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rps-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: rps
+  template:
+    metadata:
+      labels:
+        app: rps
+    spec:
+      containers:
+      - name: rps-container
+        image: hukayu/rps-web-app:latest
+        ports:
+        - containerPort: 8080
